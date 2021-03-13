@@ -1,0 +1,103 @@
+﻿@model HomeIndexViewModel
+
+@{
+    int value = 607;
+    ViewData["Title"] = "Home Page";
+    List<PersonViewModel> people = new List<PersonViewModel>
+{
+        new PersonViewModel("Erick","Arostegui",39),
+        new PersonViewModel("Juan","Perez",28)
+    };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h4>Razor - Directive</h4>
+<hr />
+<h1>Title : @Model.Title</h1>
+<h1>Author : @Model.Author</h1>
+<p><strong>People</strong></p>
+@foreach (PersonViewModel person in Model.People)
+{
+    <p>First Name : @person.FirstName</p>
+    <p>Last Name : @person.LastName</p>
+    <p>Age : @person.Age</p>
+}
+<p><strong>Disctricts</strong></p>
+@foreach (string district in Model.Districts)
+{
+    <p>Distrito : @district</p>
+}
+
+<h4>Razor - Implicit Expression</h4>
+<hr />
+<p>DateTime.Now : @DateTime.Now</p>
+<p>DateTime.IsLeapYear(2016) : @DateTime.IsLeapYear(2016)</p>
+<p>@await DoSomeThing("Hello", "World")</p>
+
+<h4>Razor - Explicit Expression</h4>
+<hr />
+<p>Last week this time : @(DateTime.Now - TimeSpan.FromDays(7))</p>
+@{ PersonViewModel erick = new PersonViewModel("Erick", "Arostegui", 39); }
+<p>First Name : @erick.FirstName</p>
+<p>Last Name : @erick.LastName</p>
+<p>Age : @erick.Age</p>
+
+<h4>Razor - Code Block</h4>
+<hr />
+@{
+    string quote = "The future depends on what you di today. - Mahatma Gandhi ";
+}
+<p>@quote</p>
+@{RenderName("Mahatma Gandhi.");}
+@{RenderName("Martin Luther King, Jr.");}
+
+<h4>Razor - Control structure</h4>
+<hr />
+<strong> @@if, @@else if, @@else</strong>
+@if (value % 2 == 0)
+{
+    <p>The value was even</p>
+}
+else if (value >= 137)
+{
+
+
+    <p>The value is large.</p>
+}
+else
+{
+    <p>The value is odd and small.</p>
+}
+<strong> @@for</strong>
+@for (int i = 0; i < people.Count; i++)
+{
+    var person = people[i];
+    <p>First Name : @person.FirstName</p>
+    <p>Last Name : @person.LastName</p>
+    <p>Age Name : @person.Age</p>
+}
+
+<h4>Controller - Post</h4>
+<hr />
+<form method="post">
+    <input type="hidden" value="39" name="age"/>
+    <input type="submit" value="Enviar 39" />
+</form>
+
+
+@{
+    Task<string> DoSomeThing(string a, string b)
+    {
+        string result = $"{a} {b}";
+        return Task.FromResult(result);
+    }
+
+    void RenderName(string name)
+    {
+        <p>Name : <strong>@name</strong></p>
+    }
+}
