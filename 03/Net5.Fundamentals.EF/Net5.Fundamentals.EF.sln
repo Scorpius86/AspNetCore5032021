@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net5.Fundamentals.EF.ModelF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net5.Fundamentals.EF.CodeFirst", "Net5.Fundamentals.EF.CodeFirst\Net5.Fundamentals.EF.CodeFirst.csproj", "{8F102BB5-0453-4096-BADC-BD824125831B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net5.Fundamentals.EF.MVC", "Net5.Fundamentals.EF.MVC\Net5.Fundamentals.EF.MVC.csproj", "{B37166AF-1EF0-4756-84E0-4CECDE690C57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{8F102BB5-0453-4096-BADC-BD824125831B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F102BB5-0453-4096-BADC-BD824125831B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F102BB5-0453-4096-BADC-BD824125831B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B37166AF-1EF0-4756-84E0-4CECDE690C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37166AF-1EF0-4756-84E0-4CECDE690C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37166AF-1EF0-4756-84E0-4CECDE690C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37166AF-1EF0-4756-84E0-4CECDE690C57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
