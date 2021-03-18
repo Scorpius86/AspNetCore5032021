@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5.Fundamentals.MVC.Controllers
 {
-    [Route("hogar/{action}")]
+    [Route("hogar/[action]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -47,7 +47,7 @@ namespace AspNetCore5.Fundamentals.MVC.Controllers
             return View();
         }
 
-       [Route("{controller}/javascript")]
+       [Route("casa/javascript")]
         public IActionResult JsonAction()
         {
             PersonViewModel person = new PersonViewModel("Erick", "Arostegui", 39);
