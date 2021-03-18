@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="border-color:#7030a0">
+            <div class="card-body">
+                <h5 class="card-title" style="color:#7030a0">Transient</h5>
+                <p class="card-text">GUID Controller :</p>
+                <p><strong>@Model.GuidTransient.GuidController</strong></p>
+                <p class="card-text">GUID ApplicationService :</p>
+                <p><strong>@Model.GuidTransient.GuidApplicationService</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="border-color:#1f4e79">
+            <div class="card-body">
+                <h5 class="card-title" style="color:#1f4e79">Scoped</h5>
+                <p class="card-text">GUID Controller :<br></p>
+                <p><strong>@Model.GuidScoped.GuidController</strong></p>
+                <p class="card-text">GUID ApplicationService :</p>
+                <p><strong>@Model.GuidScoped.GuidApplicationService</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="border-color:#00b050">
+            <div class="card-body">
+                <h5 class="card-title" style="color:#00b050">Singleton</h5>
+                <p class="card-text">GUID Controller :</p>
+                <p><strong>@Model.GuidSingleton.GuidController</strong></p>
+                <p class="card-text">GUID ApplicationService :</p>
+                <p><strong>@Model.GuidSingleton.GuidApplicationService</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
