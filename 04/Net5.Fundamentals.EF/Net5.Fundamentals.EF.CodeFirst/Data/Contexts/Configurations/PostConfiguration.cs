@@ -27,6 +27,10 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Contexts.Configurations
                 .HasColumnType("datetime")
                 .HasDefaultValueSql("(getdate())");
 
+            entity.Property(e => e.Resumen)
+                .IsRequired()
+                .IsUnicode(false);
+
             entity.Property(e => e.Titulo)
                 .IsRequired()
                 .HasMaxLength(200)

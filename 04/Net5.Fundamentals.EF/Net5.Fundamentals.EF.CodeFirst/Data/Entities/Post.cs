@@ -15,6 +15,7 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Entities
 
         public int PostId { get; set; }
         public string Titulo { get; set; }
+        public string Resumen { get; set; }
         public string Contenido { get; set; }
         public int UsuarioIdPropietario { get; set; }
         public int UsuarioIdCreacion { get; set; }

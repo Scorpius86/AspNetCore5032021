@@ -2,6 +2,7 @@
 (
 	PostId INT NOT NULL IDENTITY,
 	Titulo VARCHAR(200) NOT NULL,
+	Resumen VARCHAR(MAX) NOT NULL,
 	Contenido VARCHAR(MAX) NOT NULL,
 	UsuarioIdPropietario INT NOT NULL,
 	UsuarioIdCreacion INT NOT NULL,

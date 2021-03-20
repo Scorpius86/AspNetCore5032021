@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Net5.Fundamentals.EF.CodeFirst.Data.Contexts;
+using Net5.Fundamentals.EF.CodeFirst.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,7 @@ namespace Net5.Fundamentals.EF.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            string conn = "Data Source=.;Initial Catalog=Net5.Fundamentals.EF.Database;User ID=sa;Password=Password1234";
-            services.AddDbContext<Net5FundamentalsEFDatabaseContext>(
-                opt=>opt.UseSqlServer(conn)
-            );
+            services.AddRepositories();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
