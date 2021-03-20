@@ -18,7 +18,12 @@ namespace Net5.Fundamentals.EF.MVC.Services
 
         public List<PostViewModel> ListPosts()
         {
-            return Mapper.PostsToPostViewModels(_unitOfWork.Posts.GetAll());
+            return Mapper.PostsToPostViewModels(_unitOfWork.Posts.GetPosts());
         }
+        public PostViewModel GetPostById(int postId)
+        {
+            return Mapper.PostToPostViewModel(_unitOfWork.Posts.GetById(postId));
+        }
+
     }
 }
