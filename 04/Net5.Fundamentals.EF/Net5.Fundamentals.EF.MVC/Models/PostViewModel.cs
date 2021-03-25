@@ -14,10 +14,11 @@ namespace Net5.Fundamentals.EF.MVC.Models
             UsuarioCreacion = new UsuarioViewModel();
             UsuarioActualizacion = new UsuarioViewModel();
         }
+
         public int PostId { get; set; }
         public string Titulo { get; set; }
         public string Resumen { get; set; }
-        public string Contenido { get; set; }
+        public string Contenido { get; set; }        
         public DateTime FechaCreacion { get; set; }        
         public DateTime FechaActualizacion { get; set; }
 

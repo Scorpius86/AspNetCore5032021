@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Net5.Fundamentals.EF.CodeFirst.Data.Repositories
 {
-    public interface IComentarioRepository: IGenericRepository<Comentario>
+    public interface IComentarioRepository : IGenericRepository<Comentario>
     {
     }
 }

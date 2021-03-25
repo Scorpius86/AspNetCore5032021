@@ -10,7 +10,7 @@
 	FechaActualizacion DATETIME NOT NULL DEFAULT GETDATE(),
 
 	CONSTRAINT PK_Comentario PRIMARY KEY (ComentarioId),
-	CONSTRAINT FK_ComentarioPost FOREIGN KEY (PostId) REFERENCES Blog.Post(PostId),
+	CONSTRAINT FK_ComentarioPost FOREIGN KEY (PostId) REFERENCES Blog.Post(PostId) ON DELETE CASCADE,
 	CONSTRAINT FK_ComentarioUsuarioPropietario FOREIGN KEY (UsuarioIdPropietario) REFERENCES Blog.Usuario(UsuarioId),
 	CONSTRAINT FK_ComentarioUsuarioCreacion FOREIGN KEY (UsuarioIdCreacion) REFERENCES Blog.Usuario(UsuarioId),
 	CONSTRAINT FK_ComentarioUsuarioActualizacion FOREIGN KEY (UsuarioIdActualizacion) REFERENCES Blog.Usuario(UsuarioId)

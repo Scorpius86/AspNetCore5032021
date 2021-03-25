@@ -7,6 +7,10 @@ namespace Net5.Fundamentals.EF.MVC.Models
 {
     public class UsuarioViewModel
     {
+        public UsuarioViewModel()
+        {            
+        }
+
         public int UsuarioId { get; set; }
         public string NombreUsuario { get; set; }
         public string Clave { get; set; }

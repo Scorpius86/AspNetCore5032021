@@ -63,10 +63,12 @@
     <Build Include="DDL\Post.sql" />
     <Build Include="DDL\Comentario.sql" />
     <None Include="DML\01 - Usuarios.sql" />
-    <None Include="DML\02 - Post.sql" />
+    <None Include="DML\02.01 - Post.sql" />
     <None Include="DML\03 - Comentario.sql" />
     <Build Include="DDL\Blog-Schema.sql" />
     <Build Include="StoreProcedure\uspListPost.sql" />
+    <None Include="DML\02.02 - Post.sql" />
+    <None Include="DML\02.03 - Post.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="InitData.sql" />

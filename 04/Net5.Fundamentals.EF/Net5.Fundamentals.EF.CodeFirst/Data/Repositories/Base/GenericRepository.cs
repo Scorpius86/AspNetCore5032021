@@ -17,22 +17,7 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Repositories.Base
         public GenericRepository(Net5FundamentalsEFDatabaseContext context)
         {
             _context = context;
-            _dbSet = _context.Set<TEntity>();
-        }
-        public virtual void Delete(object id)
-        {
-            TEntity entityToDelete = _dbSet.Find(id);
-            Delete(entityToDelete);
-
-        }
-
-        public virtual void Delete(TEntity entityToDelete)
-        {
-            if (_context.Entry(entityToDelete).State == EntityState.Detached)
-            {
-                _dbSet.Attach(entityToDelete);
-            }
-            _dbSet.Remove(entityToDelete);
+            _dbSet = context.Set<TEntity>();
         }
 
         public virtual List<TEntity> GetAll(
@@ -47,7 +32,8 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Repositories.Base
                 query = query.Where(filter);
             }
 
-            foreach (string includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 query = query.Include(includeProperty);
             }
@@ -70,6 +56,21 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Repositories.Base
         public virtual void Insert(TEntity entity)
         {
             _dbSet.Add(entity);
+        }
+
+        public virtual void Delete(object id)
+        {
+            TEntity entityToDelete = _dbSet.Find(id);
+            Delete(entityToDelete);
+        }
+
+        public virtual void Delete(TEntity entityToDelete)
+        {
+            if (_context.Entry(entityToDelete).State == EntityState.Detached)
+            {
+                _dbSet.Attach(entityToDelete);
+            }
+            _dbSet.Remove(entityToDelete);
         }
 
         public virtual void Update(TEntity entityToUpdate)

@@ -9,12 +9,12 @@
         <span class="meta_pbtauthor">
             By&nbsp;<a href="#" rel="author" title="author profile">@Model.UsuarioPropietario.NombreCompleto</a>
         </span>&nbsp;
-        <span class="meta_date">@Model.FechaActualizacion</span>&nbsp;
+        <span class="meta_date">@Model.FechaActualizacion</span>&nbsp;            
     </div>
     <div class="post-body entry-content">
         <div>
-            @Model.Contenido
-        </div>
+            @Html.Raw(Model.Contenido)
+        </div>            
         <div style="clear: both;"></div>
     </div>
     <div class="comments" id="comments">
@@ -25,34 +25,35 @@
                     <ol id="top-ra">
                         @foreach (ComentarioViewModel comentario in Model.Comentarios)
                         {
-                            <li class="comment">
-                                <div class="avatar-image-container">
-                                    <img src="//4.bp.blogspot.com/-WoW8cUHbS8g/XO2gDoheOjI/AAAAAAAABEk/gDQmB60vHB4AeDDrBH7JORNM7w3RyOQFgCK4BGAYYCw/s35/avatar-btemplates.png" alt="">
+                        <li class="comment">
+                            <div class="avatar-image-container">
+                                <img src="//4.bp.blogspot.com/-WoW8cUHbS8g/XO2gDoheOjI/AAAAAAAABEk/gDQmB60vHB4AeDDrBH7JORNM7w3RyOQFgCK4BGAYYCw/s35/avatar-btemplates.png" alt="">
+                            </div>
+                            <div class="comment-block">
+                                <div class="comment-header">
+                                    <cite class="user"><a href="" nofollow">@comentario.UsuarioPropietario.NombreCompleto</a></cite>
+                                    <span class="icon user blog-author"></span>
+                                    <span class="datetime secondary-text">@comentario.FechaActualizacion.ToString("MMMM dd, yyyy hh:mm tt")</span>
                                 </div>
-                                <div class="comment-block">
-                                    <div class="comment-header">
-                                        <cite class="user"><a href="" nofollow">@comentario.UsuarioPropietario.NombreCompleto</a></cite>
-                                        <span class="icon user blog-author"></span>
-                                        <span class="datetime secondary-text">@comentario.FechaActualizacion.ToString("MMMM dd, yyyy hh:mm tt")</span>
-                                    </div>
-                                    <p class="comment-content">@comentario.Contenido</p>
-                                </div>
-                            </li>
+                                <p class="comment-content">@Html.Raw(comentario.Contenido)</p>
+                            </div>                                
+                        </li>
                         }
                     </ol>
                     <div class="comment-replybox-thread">
                         <div id="allHolder">
-                            <form asp-controller="Blog" asp-action="Create">
-                                <input type="hidden" name="PostId" value="@Model.PostId" />
+                            <form asp-controller="Blog" asp-action="CreateComment" >
+                                <input type="hidden" name="PostId" value="@Model.PostId"/>
                                 <div id="commentsHolder">
                                     <div class="commentBodyContainer">
-                                        <textarea name="Contenido"
-                                                  rows="4"
-                                                  cols="50"
-                                                  id="commentBodyField"
-                                                  placeholder="Enter your comment..."
-                                                  spellcheck="false"
-                                                  data-gramm="false"></textarea>
+                                        <textarea 
+                                            name="Contenido" 
+                                            rows="4" 
+                                            cols="50"
+                                            id="commentBodyField"
+                                            placeholder="Enter your comment..." 
+                                            spellcheck="false" 
+                                            data-gramm="false"></textarea>
                                         <br />
                                     </div>
                                     <div class="enableAvatar identity-type-CURRENT" id="identityControlsHolder">
@@ -63,7 +64,7 @@
                                         <span id="subscribeButton" class="notifyMeCheckbox"></span>
                                         <label for="subscribeButton" class="checkboxLabel">Notify me</label>
                                     </div>
-                                    <input type="submit" id="postCommentSubmit" name="postCommentSubmit" value="Publish" />
+                                    <input type="submit" id="postCommentSubmit" name="postCommentSubmit" value="Publish" class="bg-primary border-primary"/>
                                 </div>
                             </form>
                         </div>
@@ -72,4 +73,8 @@
             </div>
         </div>
     </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>

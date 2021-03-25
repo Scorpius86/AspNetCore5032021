@@ -2,80 +2,77 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
-
 @media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+  html {
+    font-size: 16px;
+  }
 }
 
 .border-top {
-    border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 }
-
 .border-bottom {
-    border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-    font-size: 1rem;
-    line-height: inherit;
+  font-size: 1rem;
+  line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
-
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
 }
 
 
 
 /*******************************************************************************************************************************************************************/
-body {
+body {    
     color: #555;
     font-family: Arial, Helvetica, Sans-serif;
-    font-size: 13px;
+    font-size: 13px;    
 }
 
 a:hover {
@@ -92,6 +89,7 @@ a {
     color: #D70000;
     text-decoration: none;
     outline: none;
+    font-size: 13px;
 }
 
 h4 {
@@ -116,15 +114,15 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 0 10px;
 }
 
-    .postmeta-primary span:first-child, .postmeta-secondary span:first-child {
-        background: none;
-        padding-left: 0;
-    }
+.postmeta-primary span:first-child, .postmeta-secondary span:first-child {
+    background: none;
+    padding-left: 0;
+}
 
-    .postmeta-primary span, .postmeta-secondary span {
-        background: url(https://4.bp.blogspot.com/-qwm_x94-qp4/VvX1M7isWYI/AAAAAAAAAmc/16dXxLviSXo/s000/meta-separator.png) left center no-repeat;
-        padding: 3px 0 3px 10px;
-    }
+.postmeta-primary span, .postmeta-secondary span {
+    background: url(https://4.bp.blogspot.com/-qwm_x94-qp4/VvX1M7isWYI/AAAAAAAAAmc/16dXxLviSXo/s000/meta-separator.png) left center no-repeat;
+    padding: 3px 0 3px 10px;
+}
 
 .post-title a, .post-title a:visited, .post-title strong {
     display: block;
@@ -137,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald',sans-serif;
 }
 
-.post-title {
+.post-title, .title {
     color: #333333;
     margin: 0 0 10px 0;
     padding: 0;
@@ -162,22 +160,28 @@ h1, h2, h3, h4, h5, h6 {
     margin: 5px 0;
 }
 
-.readmore {
+.readmore, .editPost, .deletePost {
     margin-bottom: 5px;
-    float: right;
+    float: left;
 }
 
-    .readmore a {
-        color: #6D6D6D;
-        background: #F1F1F1;
-        font-size: 12px;
-        line-height: 12px;
-        display: inline-block;
-        text-decoration: none;
-        text-transform: none;
-        border: 1px solid #C4C4C4;
-        padding: 6px 10px;
-    }
+.readmore a, .editPost a, .deletePost a {
+    color: #6D6D6D;
+    background: #F1F1F1;
+    font-size: 12px;
+    line-height: 12px;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: none;
+    border: 1px solid #C4C4C4;
+    padding: 6px 10px;
+    margin-left: 5px;
+}
+
+.postActions {
+    display: flex;
+    justify-content: flex-end;
+}
 
 #comments {
     margin-bottom: 15px;
@@ -200,15 +204,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 16px;
 }
 
-    .comments .comments-content .comment-thread {
-        margin: 8px 0;
-    }
+.comments .comments-content .comment-thread {
+    margin: 8px 0;
+}
 
-        .comments .comments-content .comment-thread ol {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-        }
+.comments .comments-content .comment-thread ol {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
 
 comments .comments-content .comment:first-child {
     padding-top: 16px;
@@ -297,7 +301,7 @@ comments .comments-content .comment:first-child {
     width: 7px;
 }
 
-.comments .comment-replybox-thread {
+.comments .comment-replybox-thread .post-replybox-thread {
     margin-top: 5px;
 }
 
@@ -307,11 +311,11 @@ comments .comments-content .comment:first-child {
     border-bottom: 1px solid #eee;
 }
 
-#commentsHolder {
+#commentsHolder, #postHolder {
     padding: 18px 22px 10px 22px;
 }
 
-#commentBodyField {
+#commentBodyField, #postContentField, #postAbstractField, #postTitleField {
     background-color: #fff;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
@@ -331,7 +335,7 @@ comments .comments-content .comment:first-child {
     padding-top: 8px;
 }
 
-.postCommentButtonHolder {
+.postCommentButtonHolder, .postButtonHolder {
     background-color: #f5f5f5;
     padding: 10px 10px 4px 10px;
     clear: both;
@@ -368,7 +372,7 @@ label {
     font-weight: bold;
 }
 
-#postCommentSubmit {
+#postCommentSubmit, #postSubmit {
     background-color: #4d90f0;
     border: 1px solid #3079ed;
     color: #fff;
@@ -392,4 +396,13 @@ ul, ol {
 input {
     font-family: arial,sans-serif;
     font-size: 13px;
+}
+
+.icon_edit {
+    background-image: url(/rsrc.php/v3/yv/r/nuSZvOPs-lg.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
 }

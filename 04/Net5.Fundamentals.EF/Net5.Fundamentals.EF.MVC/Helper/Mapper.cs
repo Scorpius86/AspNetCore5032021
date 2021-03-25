@@ -43,11 +43,11 @@ namespace Net5.Fundamentals.EF.MVC.Helper
                 FechaActualizacion = post.FechaActualizacion
             };
 
-            if (post.Comentarios != null && post.Comentarios.Any())
+            if(post.Comentarios != null && post.Comentarios.Any())
             {
                 postViewModel.Comentarios = ComentariosToComentarioViewModels(post.Comentarios.ToList());
             }
-            if (post.UsuarioIdPropietarioNavigation != null)
+            if(post.UsuarioIdPropietarioNavigation != null)
             {
                 postViewModel.UsuarioPropietario = UsuarioToUsuarioViewModel(post.UsuarioIdPropietarioNavigation);
             }
@@ -83,11 +83,11 @@ namespace Net5.Fundamentals.EF.MVC.Helper
                 UsuarioIdActualizacion = comentario.UsuarioIdActualizacion
             };
 
-            if (comentario.Post != null)
+            if (comentario.Post != null )
             {
                 comentarioViewModel.Post = PostToPostViewModel(comentario.Post);
             }
-            if (comentario.UsuarioIdPropietarioNavigation != null)
+            if (comentario.UsuarioIdPropietarioNavigation != null )
             {
                 comentarioViewModel.UsuarioPropietario = UsuarioToUsuarioViewModel(comentario.UsuarioIdPropietarioNavigation);
             }
@@ -148,7 +148,7 @@ namespace Net5.Fundamentals.EF.MVC.Helper
                 post.Comentarios = ComentarioViewModelsToComentarios(postViewModel.Comentarios.ToList()).ToList();
             }
             if (postViewModel.UsuarioPropietario != null)
-            {
+            {                
                 post.UsuarioIdPropietarioNavigation = UsuarioViewModelToUsuario(postViewModel.UsuarioPropietario);
             }
             if (postViewModel.UsuarioCreacion != null)
@@ -205,7 +205,7 @@ namespace Net5.Fundamentals.EF.MVC.Helper
         public static List<Comentario> ComentarioViewModelsToComentarios(List<ComentarioViewModel> comentarioViewModels)
         {
             List<Comentario> comentarios = new List<Comentario>();
-            comentarioViewModels.ForEach(comentarioViewModel => comentarios.Add(ComentarioViewModelToComentario(comentarioViewModel)));
+            comentarioViewModels.ForEach(comentarioViewModel=> comentarios.Add(ComentarioViewModelToComentario(comentarioViewModel)));
 
             return comentarios;
         }

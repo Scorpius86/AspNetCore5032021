@@ -5,7 +5,12 @@ namespace Net5.Fundamentals.EF.MVC.Services
 {
     public interface IBlogService
     {
-        List<PostViewModel> ListPosts();
         PostViewModel GetPostById(int postId);
+        void InsertComment(ComentarioViewModel comentarioViewModel);
+        void InsertPost(PostViewModel postViewModel);
+        List<PostViewModel> ListPosts();
+        void UpdatePost(PostViewModel postViewModel);
+        void DeletePost(int postId);
+        bool PostExists(int postId);
     }
 }

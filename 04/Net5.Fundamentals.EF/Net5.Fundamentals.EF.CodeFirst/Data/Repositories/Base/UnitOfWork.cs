@@ -1,4 +1,6 @@
 ﻿using Net5.Fundamentals.EF.CodeFirst.Data.Contexts;
+using Net5.Fundamentals.EF.CodeFirst.Data.Entities;
+using Net5.Fundamentals.EF.CodeFirst.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +12,22 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Repositories.Base
     public class UnitOfWork : IUnitOfWork
     {
         public IUsuarioRepository Usuarios { get; }
-        public IComentarioRepository Comentarios { get; }
         public IPostRepository Posts { get; }
-
-        private Net5FundamentalsEFDatabaseContext _context;
+        public IComentarioRepository Comentarios { get; }
+        private Net5FundamentalsEFDatabaseContext _context;        
 
         public UnitOfWork(
             Net5FundamentalsEFDatabaseContext context,
             IUsuarioRepository usuarioRepository,
-            IComentarioRepository comentarioRepository,
-            IPostRepository postRepository
+            IPostRepository postRepository,
+            IComentarioRepository comentarioRepository
         )
         {
             _context = context;
             Usuarios = usuarioRepository;
-            Comentarios = comentarioRepository;
             Posts = postRepository;
+            Comentarios = comentarioRepository;
         }
-
         public void Save()
         {
             _context.SaveChanges();
@@ -37,15 +37,14 @@ namespace Net5.Fundamentals.EF.CodeFirst.Data.Repositories.Base
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposed)
+            if (!this.disposed)
             {
                 if (disposing)
                 {
                     _context.Dispose();
                 }
             }
-
-            disposed = true;
+            this.disposed = true;
         }
 
         public void Dispose()
