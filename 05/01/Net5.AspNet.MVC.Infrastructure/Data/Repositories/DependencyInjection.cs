@@ -15,7 +15,7 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            string conn = "Data Source=.;Initial Catalog=Net5.Fundamentals.EF.Database;User ID=sa;Password=Password1234";
+            string conn = "Data Source=.;Initial Catalog=Net5.AspNet.MVC.Database;User ID=sa;Password=Password1234";
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<IComentarioRepository,ComentarioRepository>();

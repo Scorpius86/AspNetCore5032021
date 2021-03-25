@@ -1,4 +1,4 @@
-﻿CREATE TABLE [Blog].[Usuario]
+﻿/*CREATE TABLE [Blog].[Usuario]
 (
 	UsuarioId INT NOT NULL IDENTITY,
 	NombreUsuario VARCHAR(200) NOT NULL,
@@ -9,3 +9,4 @@
 
 	CONSTRAINT PK_Usuario PRIMARY KEY (UsuarioId)
 )
+*/
