@@ -315,9 +315,10 @@ comments .comments-content .comment:first-child {
     padding: 18px 22px 10px 22px;
 }
 
-#commentBodyField, #postContentField, #postAbstractField, #postTitleField {
+#commentBodyField, #postContentField, #postAbstractField, #postTitleField, .form-control {
     background-color: #fff;
     border: 1px solid #e5e5e5;
+    height:auto;
     box-sizing: border-box;
     color: #222;
     display: inline-block;
@@ -372,12 +373,17 @@ label {
     font-weight: bold;
 }
 
-#postCommentSubmit, #postSubmit {
+#postCommentSubmit, #postSubmit, .btn {
     background-color: #4d90f0;
     border: 1px solid #3079ed;
     color: #fff;
     font-weight: bold;
     margin: 0 8px 6px 0;
+    height: 24px;
+    border-radius: 0px;
+    font-size: 13px;
+    padding: 0 6px;
+    color: white !important;
 }
 
 ol {
@@ -405,4 +411,9 @@ input {
     display: inline-block;
     height: 16px;
     width: 16px;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 6px;
+    padding-left: 6px;
 }

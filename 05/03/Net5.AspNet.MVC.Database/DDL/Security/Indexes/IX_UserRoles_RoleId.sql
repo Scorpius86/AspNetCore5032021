@@ -1,1 +1,0 @@
-﻿CREATE INDEX [IX_UserRoles_RoleId] ON [Security].[UserRoles] ([RoleId]);

@@ -1,1 +1,0 @@
-﻿CREATE INDEX [EmailIndex] ON [Security].[Users] ([NormalizedEmail]);

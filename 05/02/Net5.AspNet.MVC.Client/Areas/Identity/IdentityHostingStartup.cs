@@ -19,10 +19,13 @@ namespace Net5.AspNet.MVC.Client.Areas.Identity
                 services.AddDbContext<SecurityContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SecurityContextConnection")));
-                
+                /*
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<SecurityContext>();
-                
+                */
+
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<SecurityContext>();
                 /*
                 services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                    .AddEntityFrameworkStores<SecurityContext>()
