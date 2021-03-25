@@ -1,0 +1,71 @@
+﻿@model PostViewModel
+
+<h3 class="title">Edit Post</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="post-replybox-thread">
+            <div id="allHolder">
+                <form asp-action="EditPost">
+                    <input type="hidden" asp-for="@Model.PostId"/>
+                    <div id="postHolder">
+                        <div class="form-group">
+                            <label asp-for="Titulo" class="control-label"></label>
+                            <div class="postTitleContainer">
+                                <input asp-for="Titulo"
+                                       id="postTitleField"
+                                       placeholder="Ingrese su título..."
+                                       spellcheck="false"
+                                       data-gramm="false" />                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Resumen" class="control-label"></label>
+                            <div class="postAbstractContainer">
+                                <textarea asp-for="Resumen"
+                                          cols="50"
+                                          id="postAbstractField"
+                                          placeholder="Ingrese su resumen..."
+                                          spellcheck="false"
+                                          data-gramm="false"></textarea>                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Contenido" class="control-label"></label>
+                            <div class="postContentContainer">
+                                <textarea asp-for="Contenido"
+                                          cols="50"
+                                          id="postContentField"
+                                          placeholder="Ingrese su contenido..."
+                                          spellcheck="false"
+                                          data-gramm="false"></textarea>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="postButtonHolder" id="postButtonHolder">
+                        <div id="subscribeButtonHolder" class="container" style="display: none;">
+                            <span id="subscribeButton" class="notifyMeCheckbox"></span>
+                            <label for="subscribeButton" class="checkboxLabel">Notify me</label>
+                        </div>
+                        <input type="submit" id="postSubmit" name="postSubmit" value="Publish" class="bg-primary border-primary"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        CKEDITOR.replace('postAbstractField', {
+            height: 100
+        });
+        CKEDITOR.replace('postContentField', {
+            height: 300
+        });
+    </script>
+}

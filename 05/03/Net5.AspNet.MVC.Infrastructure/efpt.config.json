@@ -1,0 +1,47 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "BlogContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data\/Contexts",
+   "OutputPath": "Data\/Entities",
+   "ProjectRootNamespace": "Net5.AspNet.MVC.Infrastructure",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[Blog].[Comentario]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Blog].[Post]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Security].[Users]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[Blog].[uspListPost]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "00ea6c046e26.Net5.AspNet.MVC.Database",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}
