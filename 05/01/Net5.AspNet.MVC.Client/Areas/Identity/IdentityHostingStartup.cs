@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Net5.AspNet.MVC.Client.Areas.Identity.Data;
 using Net5.AspNet.MVC.Client.Data;
 
 [assembly: HostingStartup(typeof(Net5.AspNet.MVC.Client.Areas.Identity.IdentityHostingStartup))]
@@ -19,7 +20,7 @@ namespace Net5.AspNet.MVC.Client.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("SecurityContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<SecurityContext>();
             });
         }

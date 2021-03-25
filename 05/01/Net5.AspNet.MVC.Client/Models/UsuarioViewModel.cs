@@ -11,7 +11,7 @@ namespace Net5.AspNet.MVC.Client.Models
         {            
         }
 
-        public int UsuarioId { get; set; }
+        public string UsuarioId { get; set; }
         public string NombreUsuario { get; set; }
         public string Clave { get; set; }
         public string Nombre { get; set; }

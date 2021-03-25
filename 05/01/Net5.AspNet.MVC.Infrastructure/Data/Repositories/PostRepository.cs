@@ -11,18 +11,18 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
 {
     public class PostRepository:GenericRepository<Post>, IPostRepository
     {
-        public PostRepository(Net5FundamentalsEFDatabaseContext context):base(context)
+        public PostRepository(BlogContext context):base(context)
         {
 
         }
-        public List<Post> GetPostByUsuarioIdPropetario(int usuarioId)
+        public List<Post> GetPostByUsuarioIdPropetario(string usuarioId)
         {
             return _context.Posts.Where(p => p.UsuarioIdPropietario == usuarioId).ToList();
         }
         public List<Post> GetPosts()
         {
             var queryPosts = from p in _context.Posts
-                        join up in _context.Usuarios on p.UsuarioIdPropietario equals up.UsuarioId
+                        join up in _context.Users on p.UsuarioIdPropietario equals up.Id
                         select new Post
                         {
                             PostId = p.PostId,
@@ -36,7 +36,7 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
                         };
 
             var queryCometarios = from c in _context.Comentarios
-                                  join up in _context.Usuarios on c.UsuarioIdPropietario equals up.UsuarioId
+                                  join up in _context.Users on c.UsuarioIdPropietario equals up.Id
                                   select new Comentario
                                   {
                                       ComentarioId = c.ComentarioId,
@@ -59,7 +59,7 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
         public Post GetPostById(int postId)
         {
             var queryPost = from p in _context.Posts
-                             join up in _context.Usuarios on p.UsuarioIdPropietario equals up.UsuarioId
+                             join up in _context.Users on p.UsuarioIdPropietario equals up.Id
                              where p.PostId == postId
                              select new Post
                              {
@@ -74,7 +74,7 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
                              };
 
             var queryConetarios = from c in _context.Comentarios
-                                  join up in _context.Usuarios on c.UsuarioIdPropietario equals up.UsuarioId
+                                  join up in _context.Users on c.UsuarioIdPropietario equals up.Id
                                   where c.PostId == postId
                                   select new Comentario
                                   {

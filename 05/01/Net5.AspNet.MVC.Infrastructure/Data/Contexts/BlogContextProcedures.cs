@@ -5,23 +5,23 @@ using System;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
-using Net5.AspNet.MVC.Infrastructure.Data.Entities;
+using  Net5.AspNet.MVC.Infrastructure.Data.Entities;
 
-namespace Net5.AspNet.MVC.Infrastructure.Data.Contexts
+namespace  Net5.AspNet.MVC.Infrastructure.Data.Contexts
 {
-    public static class Net5FundamentalsEFDatabaseContextProceduresExtensions
+    public static class BlogContextProceduresExtensions
     {
-        public static Net5FundamentalsEFDatabaseContextProcedures GetProcedures(this Net5FundamentalsEFDatabaseContext context)
+        public static BlogContextProcedures GetProcedures(this BlogContext context)
         {
-            return new Net5FundamentalsEFDatabaseContextProcedures(context);
+            return new BlogContextProcedures(context);
         }
     }
 
-    public partial class Net5FundamentalsEFDatabaseContextProcedures
+    public partial class BlogContextProcedures
     {
-        private readonly Net5FundamentalsEFDatabaseContext _context;
+        private readonly BlogContext _context;
 
-        public Net5FundamentalsEFDatabaseContextProcedures(Net5FundamentalsEFDatabaseContext context)
+        public BlogContextProcedures(BlogContext context)
         {
             _context = context;
         }

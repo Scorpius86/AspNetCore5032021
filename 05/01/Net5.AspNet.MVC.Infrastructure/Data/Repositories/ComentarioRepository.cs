@@ -11,7 +11,7 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
 {
     public class ComentarioRepository:GenericRepository<Comentario>, IComentarioRepository
     {
-        public ComentarioRepository(Net5FundamentalsEFDatabaseContext context):base(context)
+        public ComentarioRepository(BlogContext context):base(context)
         {
 
         }

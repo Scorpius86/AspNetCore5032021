@@ -22,7 +22,7 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            services.AddDbContext<Net5FundamentalsEFDatabaseContext>(opt =>
+            services.AddDbContext<BlogContext>(opt =>
             {
                 opt.UseSqlServer(conn);
             });

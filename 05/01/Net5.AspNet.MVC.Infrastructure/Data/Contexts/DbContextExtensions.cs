@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Net5.AspNet.MVC.Infrastructure.Data.Contexts
+namespace  Net5.AspNet.MVC.Infrastructure.Data.Contexts
 {
     public static class DbContextExtensions
     {

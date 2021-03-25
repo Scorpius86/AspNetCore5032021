@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
 {
-    public class UsuarioRepository :GenericRepository<Usuario>, IUsuarioRepository
+    public class UsuarioRepository :GenericRepository<User>, IUsuarioRepository
     {
-        public UsuarioRepository(Net5FundamentalsEFDatabaseContext context) : base(context)
+        public UsuarioRepository(BlogContext context) : base(context)
         {
 
         }
