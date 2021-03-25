@@ -48,6 +48,7 @@ namespace Net5.AspNet.MVC.Client
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
 
             app.UseRouting();
 
