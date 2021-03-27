@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+########################################################## Datadog ##################################################################################
+#docker run -d --name dd-agent -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -e DD_API_KEY=e70dd3aad691a22b1ddf73c29cb87c20 -e DD_SITE="datadoghq.com" gcr.io/datadoghq/agent:7
+
+  datadog-agent:
+    image: gcr.io/datadoghq/agent:latest
+    restart: always
+    ports:
+      - 8125:8125
+      - 8126:8126
+    environment:
+      - DD_SITE="datadoghq.com"
+      - DD_API_KEY=e70dd3aad691a22b1ddf73c29cb87c20
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+      - DD_CONTAINER_EXCLUDE="name:datadog-agent"
+    volumes:
+       - \\.\pipe\docker_engine:\\.\pipe\docker_engine \
+    #  - ./docker.sock:/var/run/docker.sock:ro
+    #  - ./proc:/host/proc/:ro
+    #  - ./cgroup/:/host/sys/fs/cgroup:ro
+    networks:
+      - backend
+########################################################## networks ##################################################################################
+networks:
+  backend:
+    name: backend
+    driver: bridge
+
