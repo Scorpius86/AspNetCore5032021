@@ -33,13 +33,11 @@ namespace Net5.AspNet.MVC.Client.Services
             comentario.UsuarioIdCreacionNavigation = null;
             comentario.UsuarioIdActualizacionNavigation = null;
 
-            User user = _unitOfWork.Usuarios.GetAll().FirstOrDefault();
-
             comentario.FechaCreacion = DateTime.Now;
             comentario.FechaActualizacion = DateTime.Now;
-            comentario.UsuarioIdPropietario = user.Id;
-            comentario.UsuarioIdCreacion = user.Id;
-            comentario.UsuarioIdActualizacion = user.Id;
+            comentario.UsuarioIdPropietario = 1;
+            comentario.UsuarioIdCreacion = 1;
+            comentario.UsuarioIdActualizacion = 1;
 
             _unitOfWork.Comentarios.Insert(comentario);
             _unitOfWork.Save();
@@ -54,13 +52,11 @@ namespace Net5.AspNet.MVC.Client.Services
             post.UsuarioIdCreacionNavigation = null;
             post.UsuarioIdActualizacionNavigation = null;
 
-            User user = _unitOfWork.Usuarios.GetAll().FirstOrDefault();
-
             post.FechaCreacion = DateTime.Now;
             post.FechaActualizacion = DateTime.Now;
-            post.UsuarioIdPropietario = user.Id;
-            post.UsuarioIdCreacion = user.Id;
-            post.UsuarioIdActualizacion = user.Id;
+            post.UsuarioIdPropietario = 1;
+            post.UsuarioIdCreacion = 1;
+            post.UsuarioIdActualizacion = 1;
 
             _unitOfWork.Posts.Insert(post);
             _unitOfWork.Save();
@@ -73,10 +69,7 @@ namespace Net5.AspNet.MVC.Client.Services
             post.Resumen = postViewModel.Resumen;
             post.Contenido = postViewModel.Contenido;
             post.FechaActualizacion = DateTime.Now;
-
-            User user = _unitOfWork.Usuarios.GetAll().FirstOrDefault();
-
-            post.UsuarioIdActualizacion = user.Id;
+            post.UsuarioIdActualizacion = 1;
 
             _unitOfWork.Posts.Update(post);
             _unitOfWork.Save();

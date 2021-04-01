@@ -28,7 +28,6 @@ namespace Net5.AspNet.MVC.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddRepositories();
             services.AddServices();
         }
@@ -48,7 +47,6 @@ namespace Net5.AspNet.MVC.Client
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseAuthentication();
 
             app.UseRouting();
 
@@ -59,8 +57,6 @@ namespace Net5.AspNet.MVC.Client
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapRazorPages();
             });
         }
     }

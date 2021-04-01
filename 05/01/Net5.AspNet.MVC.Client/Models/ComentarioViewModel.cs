@@ -19,9 +19,9 @@ namespace Net5.AspNet.MVC.Client.Models
         public string Contenido { get; set; }        
         public DateTime FechaCreacion { get; set; }        
         public DateTime FechaActualizacion { get; set; }
-        public string UsuarioIdPropietario { get; set; }
-        public string UsuarioIdCreacion { get; set; }
-        public string UsuarioIdActualizacion { get; set; }
+        public int UsuarioIdPropietario { get; set; }
+        public int UsuarioIdCreacion { get; set; }
+        public int UsuarioIdActualizacion { get; set; }
 
         public PostViewModel Post { get; set; }
         public UsuarioViewModel UsuarioPropietario { get; set; }

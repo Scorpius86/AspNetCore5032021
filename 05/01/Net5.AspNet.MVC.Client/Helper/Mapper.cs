@@ -9,22 +9,22 @@ namespace Net5.AspNet.MVC.Client.Helper
 {
     public static class Mapper
     {
-        public static UsuarioViewModel UsuarioToUsuarioViewModel(User usuario)
+        public static UsuarioViewModel UsuarioToUsuarioViewModel(Usuario usuario)
         {
             UsuarioViewModel usuarioViewModel = new UsuarioViewModel
             {
-                UsuarioId = usuario.Id,
-                NombreUsuario = usuario.UserName,
-                Clave = usuario.PasswordHash,
-                Nombre = usuario.FirstName,
-                ApellidoPaterno = usuario.LastName,
-                ApellidoMaterno = usuario.SurName,
-                NombreCompleto = $"{usuario.FirstName} {usuario.LastName} {usuario.SurName}"
+                UsuarioId = usuario.UsuarioId,
+                NombreUsuario = usuario.NombreUsuario,
+                Clave = usuario.Clave,
+                Nombre = usuario.Nombre,
+                ApellidoPaterno = usuario.ApellidoPaterno,
+                ApellidoMaterno = usuario.ApellidoMaterno,
+                NombreCompleto = $"{usuario.Nombre} {usuario.ApellidoPaterno} {usuario.ApellidoMaterno}"
             };
 
             return usuarioViewModel;
         }
-        public static List<UsuarioViewModel> UsuariosToUsuarioViewModels(List<User> usuarios)
+        public static List<UsuarioViewModel> UsuariosToUsuarioViewModels(List<Usuario> usuarios)
         {
             List<UsuarioViewModel> usuarioViewModels = new List<UsuarioViewModel>();
             usuarios.ForEach(usuario => usuarioViewModels.Add(UsuarioToUsuarioViewModel(usuario)));
@@ -110,23 +110,23 @@ namespace Net5.AspNet.MVC.Client.Helper
             return comentarioViewModels;
         }
 
-        public static User UsuarioViewModelToUsuario(UsuarioViewModel usuarioViewModel)
+        public static Usuario UsuarioViewModelToUsuario(UsuarioViewModel usuarioViewModel)
         {
-            User usuario = new User
+            Usuario usuario = new Usuario
             {
-                Id = usuarioViewModel.UsuarioId,
-                UserName = usuarioViewModel.NombreUsuario,
-                PasswordHash = usuarioViewModel.Clave,
-                FirstName = usuarioViewModel.Nombre,
-                LastName = usuarioViewModel.ApellidoPaterno,
-                SurName = usuarioViewModel.ApellidoMaterno
+                UsuarioId = usuarioViewModel.UsuarioId,
+                NombreUsuario = usuarioViewModel.NombreUsuario,
+                Clave = usuarioViewModel.Clave,
+                Nombre = usuarioViewModel.Nombre,
+                ApellidoPaterno = usuarioViewModel.ApellidoPaterno,
+                ApellidoMaterno = usuarioViewModel.ApellidoMaterno
             };
 
             return usuario;
         }
-        public static List<User> usuarioViewModelsToUsuario(List<UsuarioViewModel> usuarioViewModels)
+        public static List<Usuario> usuarioViewModelsToUsuario(List<UsuarioViewModel> usuarioViewModels)
         {
-            List<User> usuarios = new List<User>();
+            List<Usuario> usuarios = new List<Usuario>();
             usuarioViewModels.ForEach(usuarioViewModel => usuarios.Add(UsuarioViewModelToUsuario(usuarioViewModel)));
 
             return usuarios;

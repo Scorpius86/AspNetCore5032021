@@ -14,6 +14,8 @@ using Net5.AspNet.MVC.Client.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Net5.AspNet.MVC.Infrastructure.Data.Blog.Repositories;
 using Net5.AspNet.MVC.Infrastructure.Data.Audit.Repositories;
+using Net5.AspNet.MVC.Infrastructure.Helper.Log;
+using Net5.AspNet.MVC.Infrastructure.Helper.Error;
 
 namespace Net5.AspNet.MVC.Client
 {
@@ -39,6 +41,8 @@ namespace Net5.AspNet.MVC.Client
             services.AddBlogRepositories();
             services.AddAuditRepositories();
             services.AddServices();
+
+            services.AddScoped<LogFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +50,8 @@ namespace Net5.AspNet.MVC.Client
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
+                app.UseExceptionHandlerMiddleware();
             }
             else
             {

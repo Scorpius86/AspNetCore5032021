@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories
 {
-    public interface IUsuarioRepository:IGenericRepository<User>
+    public interface IUsuarioRepository:IGenericRepository<Usuario>
     {
     }
 }

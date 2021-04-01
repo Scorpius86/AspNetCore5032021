@@ -4,22 +4,22 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace  Net5.AspNet.MVC.Infrastructure.Data.Entities
+namespace Net5.AspNet.MVC.Infrastructure.Data.Entities
 {
     public partial class Comentario
     {
         public int ComentarioId { get; set; }
         public int PostId { get; set; }
         public string Contenido { get; set; }
-        public string UsuarioIdPropietario { get; set; }
-        public string UsuarioIdCreacion { get; set; }
+        public int UsuarioIdPropietario { get; set; }
+        public int UsuarioIdCreacion { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public string UsuarioIdActualizacion { get; set; }
+        public int UsuarioIdActualizacion { get; set; }
         public DateTime FechaActualizacion { get; set; }
 
         public virtual Post Post { get; set; }
-        public virtual User UsuarioIdActualizacionNavigation { get; set; }
-        public virtual User UsuarioIdCreacionNavigation { get; set; }
-        public virtual User UsuarioIdPropietarioNavigation { get; set; }
+        public virtual Usuario UsuarioIdActualizacionNavigation { get; set; }
+        public virtual Usuario UsuarioIdCreacionNavigation { get; set; }
+        public virtual Usuario UsuarioIdPropietarioNavigation { get; set; }
     }
 }

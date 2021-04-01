@@ -3,17 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace  Net5.AspNet.MVC.Infrastructure.Data.Entities
+namespace Net5.AspNet.MVC.Infrastructure.Data.Entities
 {
     public partial class uspListPostResult
     {
         public int PostId { get; set; }
         public string Titulo { get; set; }
         public string Contenido { get; set; }
-        public string UsuarioIdPropietario { get; set; }
-        public string UsuarioIdCreacion { get; set; }
+        public int UsuarioIdPropietario { get; set; }
+        public int UsuarioIdCreacion { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public string UsuarioIdActualizacion { get; set; }
+        public int UsuarioIdActualizacion { get; set; }
         public DateTime FechaActualizacion { get; set; }
     }
 }

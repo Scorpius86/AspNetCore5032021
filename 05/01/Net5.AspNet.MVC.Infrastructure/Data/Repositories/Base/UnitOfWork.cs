@@ -14,10 +14,10 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories.Base
         public IUsuarioRepository Usuarios { get; }
         public IPostRepository Posts { get; }
         public IComentarioRepository Comentarios { get; }
-        private BlogContext _context;        
+        private Net5FundamentalsEFDatabaseContext _context;        
 
         public UnitOfWork(
-            BlogContext context,
+            Net5FundamentalsEFDatabaseContext context,
             IUsuarioRepository usuarioRepository,
             IPostRepository postRepository,
             IComentarioRepository comentarioRepository

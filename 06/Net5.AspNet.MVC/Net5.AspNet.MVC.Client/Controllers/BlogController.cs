@@ -9,16 +9,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Net5.AspNet.MVC.Infrastructure.Helper.Audit;
+using Net5.AspNet.MVC.Infrastructure.Helper.Log;
 
 namespace Net5.AspNet.MVC.Client.Controllers
-{    
+{
+    [ServiceFilter(typeof(LogFilter))]
+    [Audit]
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
         public BlogController(IBlogService blogService)
         {
             _blogService = blogService;
-        }        
+        }
+
         public ActionResult Index()
         {
             return View(_blogService.ListPosts());
@@ -68,7 +73,8 @@ namespace Net5.AspNet.MVC.Client.Controllers
             }
             catch (Exception ex)
             {
-                return View(postViewModel);
+                //return View(postViewModel);
+                throw;
             }
         }
 
@@ -145,6 +151,12 @@ namespace Net5.AspNet.MVC.Client.Controllers
         {
             _blogService.DeletePost(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Errorpage()
+        {
+            return View();
         }
     }
 }

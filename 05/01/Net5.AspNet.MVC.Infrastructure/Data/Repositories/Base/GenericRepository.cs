@@ -11,10 +11,10 @@ namespace Net5.AspNet.MVC.Infrastructure.Data.Repositories.Base
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        internal BlogContext _context;
+        internal Net5FundamentalsEFDatabaseContext _context;
         internal DbSet<TEntity> _dbSet;
 
-        public GenericRepository(BlogContext context)
+        public GenericRepository(Net5FundamentalsEFDatabaseContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

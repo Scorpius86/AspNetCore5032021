@@ -99,5 +99,6 @@
     <Build Include="DDL\Blog\Tables\Usuario.sql" />
     <Build Include="DDL\Audit\Audit\AuditLog.sql" />
     <Build Include="DDL\Audit\Audit-Schema.sql" />
+    <Build Include="DDL\Audit\Audit\Log.sql" />
   </ItemGroup>
 </Project>

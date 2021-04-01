@@ -55,41 +55,23 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="StoreProcedure" />
-    <Folder Include="DDL" />
-    <Folder Include="DDL\Blog" />
-    <Folder Include="DDL\Blog\Tables" />
-    <Folder Include="DDL\Security" />
-    <Folder Include="DDL\Security\Indexes" />
-    <Folder Include="DDL\Security\Tables" />
     <Folder Include="DML" />
+    <Folder Include="DDL" />
+    <Folder Include="StoreProcedure" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="StoreProcedure\uspListPost.sql" />
-    <Build Include="DDL\Blog\Tables\Comentario.sql" />
-    <Build Include="DDL\Blog\Tables\Post.sql" />
-    <Build Include="DDL\Blog\Tables\Usuario.sql" />
-    <Build Include="DDL\Blog\Blog-Schema.sql" />
-    <Build Include="DDL\Security\Indexes\EmailIndex.sql" />
-    <Build Include="DDL\Security\Indexes\IX_RoleClaims_RoleId.sql" />
-    <Build Include="DDL\Security\Indexes\IX_UserClaims_UserId.sql" />
-    <Build Include="DDL\Security\Indexes\IX_UserLogins_UserId.sql" />
-    <Build Include="DDL\Security\Indexes\IX_UserRoles_RoleId.sql" />
-    <Build Include="DDL\Security\Indexes\RoleNameIndex.sql" />
-    <Build Include="DDL\Security\Indexes\UserNameIndex.sql" />
-    <Build Include="DDL\Security\Tables\RoleClaims.sql" />
-    <Build Include="DDL\Security\Tables\Roles.sql" />
-    <Build Include="DDL\Security\Tables\UserClaims.sql" />
-    <Build Include="DDL\Security\Tables\UserLogins.sql" />
-    <Build Include="DDL\Security\Tables\UserRoles.sql" />
-    <Build Include="DDL\Security\Tables\Users.sql" />
-    <Build Include="DDL\Security\Tables\UserTokens.sql" />
-    <Build Include="DDL\Security\Security-Schema.sql" />
+    <Build Include="DDL\Usuario.sql" />
+    <Build Include="DDL\Post.sql" />
+    <Build Include="DDL\Comentario.sql" />
     <None Include="DML\01 - Usuarios.sql" />
     <None Include="DML\02.01 - Post.sql" />
+    <None Include="DML\03 - Comentario.sql" />
+    <Build Include="DDL\Blog-Schema.sql" />
+    <Build Include="StoreProcedure\uspListPost.sql" />
     <None Include="DML\02.02 - Post.sql" />
     <None Include="DML\02.03 - Post.sql" />
-    <None Include="DML\03 - Comentario.sql" />
-    <Build Include="InitData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="InitData.sql" />
   </ItemGroup>
 </Project>
