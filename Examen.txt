@@ -1,0 +1,27 @@
+Erick.Arostegui
+Erick.Arostegui.Client
+Erick.Arostegui.Infrastructure
+
+Alumnos -> CRUD
+Cursos -> CRUD
+
+Notas -> 
+	Todos los alumnos tienes todos los cursos
+	Si agrego un nuevo curso me debe permitir ingresar la nota
+
+Seguridad ->
+	Rol el usuario (Administrador,Profesor , Alumno)
+        Grants de los roles debe estar en BD
+        Admin -> registrar usuario Define el rol (Profesor o Alumno) 
+	Admin -> CRUD Alumnos, CRUD Cursos,CRUD notas
+        Profesor -> CRUD Notas
+        Alumno -> Ver Notas
+
+Auditoria -> CRUD's Alumno Curso NOtas
+Log
+Gestion Errores
+
+DI
+Repository
+UoW
+EF Core 5
