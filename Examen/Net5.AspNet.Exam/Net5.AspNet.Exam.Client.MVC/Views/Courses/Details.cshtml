@@ -1,0 +1,30 @@
+﻿@model CourseViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header">Course Details.</h4>
+            <div class="card-body">
+                <fieldset disabled>
+                    <div class="form-group">
+                        <label asp-for="CourseId"></label>
+                        <input asp-for="CourseId" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" />
+                    </div>                    
+                </fieldset>
+            </div>            
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-controller="Courses" asp-action="Edit" asp-route-id="@Model.CourseId">Edit</a> |
+    <a asp-controller="Courses" asp-action="Delete" asp-route-id="@Model.CourseId">Delete</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+}

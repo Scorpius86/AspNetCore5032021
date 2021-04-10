@@ -1,0 +1,30 @@
+﻿@model CourseViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header">Create a new course.</h4>            
+            <form asp-action="Create" method="post">
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>                    
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" /> 
+}

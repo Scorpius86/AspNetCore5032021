@@ -1,0 +1,38 @@
+﻿@model GradeViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header">Grade Details.</h4>            
+            <div class="card-body">
+                <fieldset disabled>
+                    <div class="form-group">
+                        <label asp-for="GradeId"></label>
+                        <input asp-for="GradeId" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Student.FullName"></label>
+                        <input asp-for="Student.FullName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Course.Description"></label>
+                        <input asp-for="Course.Description" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Value"></label>
+                        <input asp-for="Value" class="form-control" />
+                    </div>
+                </fieldset>
+            </div>            
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-controller="Grades" asp-action="Edit" asp-route-id="@Model.GradeId">Edit</a> |
+    <a asp-controller="Grades" asp-action="Delete" asp-route-id="@Model.GradeId">Delete</a> |
+    <a asp-controller="Grades" asp-action="List" asp-route-id="@Model.StudentId">Back to List</a>    
+</div>
+
+@section Scripts {
+}

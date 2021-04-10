@@ -1,0 +1,69 @@
+﻿@model StudentViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header">Edit student.</h4>
+            <form asp-action="Edit" method="post" onsubmit="beforeSave()">
+                <div class="card-body">
+                    <fieldset>
+                        <input type="hidden" asp-for="@Model.StudentId" />
+                        <div class="form-group">
+                            <label asp-for="StudentId"></label>
+                            <input asp-for="StudentId" class="form-control" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="SurName"></label>
+                            <input asp-for="SurName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserId"></label>
+                            <input asp-for="UserId" class="form-control invisible  p-0 h-0" />
+
+                            <select class="selectpicker form-control" data-live-search="true" title="Choose one of the following...">
+                                @foreach (var user in Model.Users)
+                                {
+                                    <option value="@user.Id">@user.UserName</option>
+                                }
+                            </select>
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(function () {            
+            $('select').selectpicker();
+            var selectedRoles = document.getElementsByName("UserId")[0].value;
+            var selectedItem = selectedRoles.split(",");
+            $('.selectpicker').val(selectedItem);
+            $('.selectpicker').selectpicker('refresh')
+        });
+
+        function beforeSave() {
+            var selectedItem = $('.selectpicker').val();
+            document.getElementsByName("UserId")[0].value = selectedItem.toString();
+        }
+    </script>
+}

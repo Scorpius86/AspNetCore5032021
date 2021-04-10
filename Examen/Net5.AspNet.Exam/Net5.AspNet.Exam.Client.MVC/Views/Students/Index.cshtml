@@ -1,0 +1,43 @@
+﻿@model IEnumerable<StudentViewModel>
+
+<h3>List Students</h3>
+<br />
+<a asp-action="Create">Create Student</a>
+<br />
+<br />
+<table class="table table-reflow table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.StudentId) </th>
+            <th>@Html.DisplayNameFor(model => model.FirstName) </th>
+            <th>@Html.DisplayNameFor(model => model.LastName) </th>
+            <th>@Html.DisplayNameFor(model => model.SurName) </th>
+            <th>@Html.DisplayNameFor(model => model.User.UserName) </th>
+            <th>@Html.DisplayNameFor(model => model.GradesAverage) </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentViewModel student in Model)
+        {
+            <tr>
+                <th scope="row">@student.StudentId</th>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.SurName</td>
+                <td>@student.User.UserName</td>
+                <td>@student.GradesAverage</td>
+                <td>
+                    <a asp-controller="Students" asp-action="Details" asp-route-id="@student.StudentId" data-toggle="tooltip" data-placement="top" title="Details"><span class="fa fa-info-circle"></span></a>&nbsp;&nbsp;
+                    <a asp-controller="Students" asp-action="Edit" asp-route-id="@student.StudentId" data-toggle="tooltip" data-placement="top" title="Edit"><span class="fa fa-edit"></span></a>&nbsp;&nbsp;
+                    <a asp-controller="Students" asp-action="Delete" asp-route-id="@student.StudentId" data-toggle="tooltip" data-placement="top" title="Delete"><span class="fa fa-trash"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+
+}

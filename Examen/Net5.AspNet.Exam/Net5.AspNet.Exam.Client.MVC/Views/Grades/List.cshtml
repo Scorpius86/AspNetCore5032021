@@ -1,0 +1,77 @@
+﻿@model ListGradeViewModel
+
+<h3>List Courses</h3>
+@if (Model.Courses.Any())
+{
+<br />
+<a asp-action="Create" asp-route-id="@Model.Student.StudentId">Create Grade</a>
+}
+<br />
+<br />
+<table>
+    <tr>
+        <td>Student Id</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>@Model.Student.StudentId</td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>@Model.Student.FirstName</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>@Model.Student.LastName</td>
+    </tr>
+    <tr>
+        <td>Sur Name</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>@Model.Student.SurName</td>
+    </tr>
+    <tr>
+        <td>Grades Average</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>@Model.Student.GradesAverage</td>
+    </tr>
+</table>
+<br />
+@if (Model.Grades.Any())
+{
+    <table class="table table-reflow table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Grades[0].GradeId)</th>
+                <th>@Html.DisplayNameFor(model => model.Grades[0].Course.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Grades[0].Value)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (GradeViewModel grade in Model.Grades)
+            {
+                <tr>
+                    <th scope="row">@grade.GradeId</th>
+                    <td>@grade.Course.Description</td>
+                    <td>@grade.Value</td>
+                    <td>
+                        <a asp-controller="Grades" asp-action="Details" asp-route-id="@grade.GradeId" data-toggle="tooltip" data-placement="top" title="Details"><span class="fa fa-info-circle"></span></a>&nbsp;&nbsp;
+                        <a asp-controller="Grades" asp-action="Edit" asp-route-id="@grade.GradeId" data-toggle="tooltip" data-placement="top" title="Edit"><span class="fa fa-edit"></span></a>&nbsp;&nbsp;
+                        <a asp-controller="Grades" asp-action="Delete" asp-route-id="@grade.GradeId" data-toggle="tooltip" data-placement="top" title="Delete"><span class="fa fa-trash"></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h4>Empty grades.</h4>
+}
+<br />
+<div>
+    <a asp-action="Index">Back to List of students</a>
+</div>
+@section Scripts {
+
+}

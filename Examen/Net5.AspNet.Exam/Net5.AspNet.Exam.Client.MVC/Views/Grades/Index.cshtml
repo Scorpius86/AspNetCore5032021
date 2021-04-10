@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StudentViewModel>
+
+<h3>Grades - List of Students</h3>
+<br />
+<br />
+<table class="table table-reflow table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.StudentId) </th>
+            <th>@Html.DisplayNameFor(model => model.FirstName) </th>
+            <th>@Html.DisplayNameFor(model => model.LastName) </th>
+            <th>@Html.DisplayNameFor(model => model.SurName) </th>
+            <th>@Html.DisplayNameFor(model => model.GradesAverage) </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentViewModel student in Model)
+        {
+            <tr>
+                <th scope="row">@student.StudentId</th>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.SurName</td>                
+                <td>@student.GradesAverage</td>
+                <td>
+                    <a asp-controller="Grades" asp-action="List" asp-route-id="@student.StudentId" data-toggle="tooltip" data-placement="top" title="List grades"><span class="fa fa-list-ol"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts {
+
+}

@@ -1,0 +1,58 @@
+﻿@model GradeViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <h4 class="card-header">Create a new Grade.</h4>
+            <form asp-action="Create" method="post" onsubmit="beforeRegister()">
+                <div class="card-body">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Student.FullName"></label>
+                        <input asp-for="Student.FullName" class="form-control" disabled />
+                        <input type="hidden" asp-for="StudentId" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CourseId"></label>
+                        <input asp-for="CourseId" class="form-control invisible  p-0 h-0" />
+
+                        <select class="selectpicker form-control" data-live-search="true" title="Choose one of the following...">
+                            @foreach (var course in Model.Courses)
+                            {
+                                <option value="@course.CourseId">@course.Description</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CourseId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Value"></label>
+                        <input asp-for="Value" class="form-control" />
+                        <span asp-validation-for="Value" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="List" asp-route-id="@Model.StudentId">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(function () {
+            $('select').selectpicker();
+        });
+
+        function beforeRegister() {
+            var selectedItem = $('.selectpicker').val();
+            document.getElementsByName("CourseId")[0].value = selectedItem.toString();
+        }
+    </script>
+}
