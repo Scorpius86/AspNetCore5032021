@@ -1,0 +1,27 @@
+Install IdentityServer4
+Install IdentityServer4.AspNetIdentity
+
+dotnet new -i identityserver4.templates
+dotnet new is4ui (Not run migration)
+
+Update netcore 3.1 to 5.0
+
+Rename Quickstart To UI
+Rename Namespace IdentityServerHost.Quickstart.UI to Net5.AspNet.MVC.IdentityProvider.UI all solution
+
+Copy Data/Security from Infrastructure poject to IdentityProvider project /Infrastructure
+Rename Namespace Net5.AspNet.MVC.Infrastructure to Net5.AspNet.MVC.IdentityProvider.Infrastructure only IdentityProvider project 
+
+Configure Database connectionstring appsettings
+Delete Models/ApplicationUser
+Update ApplicationUser
+Delete ApplicationContext
+Replace ApplicationContext to SecurityContext
+Change UseSqlite to UseSqlServer all Classes
+Set default IdentityProvider project
+Select IdentityProvider Project in package console
+add-migration Init -context SecurityContext
+update-database -context SecurityContext
+Configure Pprofile IIS Express in IdentityProvider project
+
+Run IIS Express

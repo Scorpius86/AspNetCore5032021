@@ -1,0 +1,1 @@
+﻿CREATE INDEX [IX_UserLogins_UserId] ON [Security].[UserLogins] ([UserId]);
