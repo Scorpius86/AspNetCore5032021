@@ -1,33 +1,24 @@
 ﻿{
    "CodeGenerationMode": 0,
-   "ContextClassName": "ClassroomContext",
+   "ContextClassName": "AuditContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,
    "ModelNamespace": null,
-   "OutputContextPath": "Data\/Classroom\/Contexts",
-   "OutputPath": "Data\/Classroom\/Entities",
-   "ProceduresReturnList": false,
-   "ProjectRootNamespace": "Net5.AspNet.Exam.Infrastructure",
+   "OutputContextPath": "Data\/Audit\/Contexts",
+   "OutputPath": "Data\/Audit\/Entities",
+   "ProjectRootNamespace": "Net5.AspNet.MVC.Infrastructure",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[Classroom].[Course]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[Classroom].[Grade]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[Classroom].[Student]",
+         "Name": "[Audit].[AuditLog]",
          "ObjectType": 0
       }
    ],
-   "UiHint": "00ea6c046e26.Net5.AspNet.Exam.Database",
+   "UiHint": "00ea6c046e26.Net5.AspNet.MVC.Database",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": true,

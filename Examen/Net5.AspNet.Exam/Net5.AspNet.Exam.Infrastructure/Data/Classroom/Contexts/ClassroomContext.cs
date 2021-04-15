@@ -28,9 +28,9 @@ namespace Net5.AspNet.Exam.Infrastructure.Data.Classroom.Contexts
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.ApplyConfiguration(new CourseConfiguration());
-            modelBuilder.ApplyConfiguration(new GradeConfiguration());
-            modelBuilder.ApplyConfiguration(new StudentConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.CourseConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.GradeConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.StudentConfiguration());
             OnModelCreatingPartial(modelBuilder);
         }
 

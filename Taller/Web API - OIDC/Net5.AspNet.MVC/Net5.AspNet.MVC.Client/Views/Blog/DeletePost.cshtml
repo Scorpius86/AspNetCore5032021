@@ -1,0 +1,44 @@
+﻿@model PostViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div id="allHolder">
+            <div id="postHolder">
+                <div class="post">
+                    <h3><span class="post-title entry-title" href="#">@Model.Titulo</span></h3>
+                    <div class="postmeta-primary">
+                        <span class="meta_pbtauthor">
+                            By&nbsp;<a href="#" rel="author" title="author profile">@Model.UsuarioPropietario.FullName</a>
+                        </span>&nbsp;
+                        <span class="meta_date">@Model.FechaActualizacion</span>&nbsp;
+                        <span class="meta_comments">
+                            <a href="#" onclick="">@Model.Comentarios.Count comments</a>
+                        </span>
+                    </div>
+                    <div class="post-body entry-content">
+                        <div>
+                            @Html.Raw(Model.Resumen)
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="postButtonHolder" id="postButtonHolder">
+                <div id="subscribeButtonHolder" class="container" style="display: none;">
+                    <span id="subscribeButton" class="notifyMeCheckbox"></span>
+                    <label for="subscribeButton" class="checkboxLabel">Notify me</label>
+                </div>
+                <form asp-action="DeletePost">
+                    <input type="hidden" asp-for="@Model.PostId"/>
+                    <input type="submit" id="postSubmit" name="postSubmit" value="Delete" class="btn btn-danger bg-danger border-danger" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
