@@ -1,1 +1,0 @@
-﻿CREATE UNIQUE INDEX [UserNameIndex] ON [Security].[Users] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
