@@ -11,25 +11,22 @@ using Net5.AspNet.MVC.Infrastructure.Data.Base;
 using Net5.AspNet.MVC.Infrastructure.Data.Blog.Repositories;
 using Net5.AspNet.MVC.Infrastructure.Data.Blog.Entities;
 using AutoMapper;
-using Net5.AspNet.MVC.Infrastructure.Data.Security.Entities;
+using System.Security.Claims;
 
 namespace Net5.AspNet.MVC.Client.Services
 {    
     public class BlogService : IBlogService
     {
         private readonly BlogUnitOfWork _unitOfWork;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;        
         private readonly IMapper _mapper;
         public BlogService(
             BlogUnitOfWork unitOfWork,
-            IHttpContextAccessor httpContextAccessor,
-            UserManager<ApplicationUser> userManager,
+            IHttpContextAccessor httpContextAccessor,            
             IMapper mapper
             )
         {
-            _unitOfWork = unitOfWork;
-            _userManager = userManager;
+            _unitOfWork = unitOfWork;            
             _httpContextAccessor = httpContextAccessor;
             _mapper = mapper;
         }
@@ -51,7 +48,7 @@ namespace Net5.AspNet.MVC.Client.Services
             comentario.UsuarioIdCreacionNavigation = null;
             comentario.UsuarioIdActualizacionNavigation = null;
 
-            string userId = _userManager.GetUserId(_httpContextAccessor.HttpContext.User);
+            string userId = _httpContextAccessor.HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
 
             comentario.FechaCreacion = DateTime.Now;
             comentario.FechaActualizacion = DateTime.Now;
@@ -72,7 +69,7 @@ namespace Net5.AspNet.MVC.Client.Services
             post.UsuarioIdCreacionNavigation = null;
             post.UsuarioIdActualizacionNavigation = null;
 
-            string userId = _userManager.GetUserId(_httpContextAccessor.HttpContext.User);
+            string userId = _httpContextAccessor.HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
 
             post.FechaCreacion = DateTime.Now;
             post.FechaActualizacion = DateTime.Now;
@@ -87,7 +84,7 @@ namespace Net5.AspNet.MVC.Client.Services
         {
             Post post = _unitOfWork.Posts.GetById(postViewModel.PostId);
 
-            string userId = _userManager.GetUserId(_httpContextAccessor.HttpContext.User);
+            string userId = _httpContextAccessor.HttpContext.User.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier).FirstOrDefault().Value;
 
             post.Titulo = postViewModel.Titulo;
             post.Resumen = postViewModel.Resumen;
